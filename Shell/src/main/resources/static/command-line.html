@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ввід команд</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Ввід команд</h1>
+</header>
+<main>
+  <div class="command-input-container">
+    <label for="commandInput">Введіть команду:</label>
+    <textarea id="commandInput" rows="5" placeholder="Введіть команду тут"></textarea>
+    <button onclick="executeCommand()">Виконати</button>
+    <p id="commandMessage"></p>
+  </div>
+
+  <a href="/">Повернутися до головної</a>
+</main>
+<script>
+  async function executeCommand() {
+    const commandInput = document.getElementById('commandInput');
+    const command = commandInput.value.trim();
+    const commandMessage = document.getElementById('commandMessage');
+
+    if (!command) {
+      commandMessage.textContent = "Будь ласка, введіть команду.";
+      commandMessage.className = "error";
+      return;
+    }
+
+    try {
+      const response = await fetch('/command-line/execute', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain'
+        },
+        body: command
+      });
+
+      if (response.ok) {
+        const result = await response.text();
+        commandMessage.textContent = result;
+        commandMessage.className = "success";
+      } else {
+        const result = await response.text();
+        commandMessage.textContent = `Помилка: ${response.status} - ${result}`;
+        commandMessage.className = "error";
+      }
+    } catch (error) {
+      commandMessage.textContent = `Помилка запиту: ${error.message}`;
+      commandMessage.className = "error";
+    }
+  }
+</script>
+</body>
+</html>

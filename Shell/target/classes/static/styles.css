@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    background-color: #121212;
+}
+
+header {
+    background-color: red;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: white;
+}
+
+form {
+    text-align: center;
+    margin: 17px 0;
+    color: white;
+}
+
+input {
+    padding: 10px 20px;
+    background-color: lightblue;
+    border-radius: 10px;
+    color: black;
+}
+
+input::placeholder {
+    text-align: center;
+    color: gray;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff5252;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 black;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: white;
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    box-shadow: 5px 5px 0 #ff5252;
+}
+
+button:active {
+    background-color: yellow;
+    box-shadow: none;
+    transform: translateY(4px);
+}
+
+#fileTableContainer {
+    margin-top: 20px;
+    color: white;
+}
+
+#fileTableContainer table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#fileTableContainer th {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    background-color: rebeccapurple;
+    color: white;
+}
+
+#fileTableContainer td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+#fileTableContainer .move-container {
+    display: none;
+    text-align: center;
+    background-color: #e8f5e9;
+}
+
+#fileTableContainer .move-container input {
+    margin: 5px;
+    padding: 8px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#fileTableContainer .move-container button {
+    margin-top: 5px;
+}
+
+#emptyMessageContainer {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+
+#searchResultsContainer {
+    margin-bottom: 10px;
+    color: white;
+}
+
+#searchResultsContainer ul {
+    list-style: none;
+    padding: 0;
+    color: white;
+}
+
+#driveSwitchContainer {
+    margin-top: 20px;
+    color: white;
+}

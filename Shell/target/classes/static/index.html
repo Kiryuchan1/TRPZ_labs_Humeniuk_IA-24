@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Головна</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Оболонка Total Commander</h1>
+</header>
+<main>
+  <div class="header-container">
+    <div class="directory-input-container">
+      <h2>Шлях до директорії</h2>
+      <form id="directoryForm">
+        <label for="directoryInput">Ви знаходитесь за цим шляхом:</label>
+        <input type="text" id="directoryInput" placeholder="Наприклад, \\" readonly>
+        <button type="button" onclick="navigateBack()">Назад</button>
+      </form>
+    </div>
+
+    <div class="search-container">
+      <h2>Пошук файлів</h2>
+      <form onsubmit="event.preventDefault(); searchFiles(document.getElementById('searchInput').value);">
+        <label for="searchInput">Введіть текст для пошуку:</label>
+        <input type="text" id="searchInput" placeholder="Наприклад, aaa.txt">
+        <button type="submit">Шукати</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div id="searchResultsContainer" style="display: none; margin-bottom: 10px;">
+    <h2>Результати пошуку</h2>
+    <ul id="searchResultsList"></ul>
+    <hr>
+  </div>
+  <div id="fileTableContainer">
+    <h2>Список файлів</h2>
+    <p id="message"></p>
+    <table>
+      <thead>
+      <tr>
+        <th>Назва файлу</th>
+        <th>Перейти</th>
+        <th>Копіювати</th>
+        <th>Видалити</th>
+        <th>Перемістити</th>
+        <th>Новий шлях</th>
+      </tr>
+      </thead>
+
+      <tbody id="fileTableBody">
+      <!-- Динамически загружаемые файлы -->
+      </tbody>
+    </table>
+  </div>
+
+  <div id="emptyMessageContainer" style="display: none;">
+    <p>Вибрана директорія порожня. Бажаєте повернутися назад?</p>
+    <button type="button" onclick="navigateBack()">Назад</button>
+  </div>
+  <hr>
+  <div id="driveSwitchContainer">
+    <h2>Переключення диска</h2>
+    <form id="driveSwitchForm" onsubmit="event.preventDefault(); switchdrive();">
+      <label for="driveInput">Введіть назву диска (наприклад, D):</label>
+      <input type="text" id="driveInput" maxlength="1" placeholder="D">
+      <button type="submit">Змінити диск</button>
+    </form>
+  </div>
+</main>
+<script src="scripts.js"></script>
+</body>
+</html>
